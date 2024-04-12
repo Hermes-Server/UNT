@@ -1,0 +1,668 @@
+{
+  "volume": {
+    "outline_polygon": {
+        "vertices": [
+            {
+                "lat": 33.046307960948596,
+                "lng": -97.28606054362399
+            },
+            {
+                "lat": 33.04629912446263,
+                "lng": -97.28001627730264
+            },
+            {
+                "lat": 33.0485137036146,
+                "lng": -97.277083294039
+            },
+            {
+                "lat": 33.05764253064192,
+                "lng": -97.2649920585341
+            },
+            {
+                "lat": 33.05764499352675,
+                "lng": -97.26498878946174
+            },
+            {
+                "lat": 33.06085479383026,
+                "lng": -97.26071969029871
+            },
+            {
+                "lat": 33.06564436029881,
+                "lng": -97.26065759254142
+            },
+            {
+                "lat": 33.06565004984125,
+                "lng": -97.26065750854261
+            },
+            {
+                "lat": 33.28837380761946,
+                "lng": -97.25695932486012
+            },
+            {
+                "lat": 33.28855447867149,
+                "lng": -97.25694593821822
+            },
+            {
+                "lat": 33.288733248492115,
+                "lng": -97.25691192058937
+            },
+            {
+                "lat": 33.28890847471536,
+                "lng": -97.2568575843698
+            },
+            {
+                "lat": 33.28907854752071,
+                "lng": -97.25678342863142
+            },
+            {
+                "lat": 33.28924190442343,
+                "lng": -97.25669013454105
+            },
+            {
+                "lat": 33.28939704463023,
+                "lng": -97.25657855910612
+            },
+            {
+                "lat": 33.28954254282857,
+                "lng": -97.25644972730434
+            },
+            {
+                "lat": 33.289677062282635,
+                "lng": -97.2563048226695
+            },
+            {
+                "lat": 33.29709978490331,
+                "lng": -97.24750159493684
+            },
+            {
+                "lat": 33.297225564957685,
+                "lng": -97.24733689327623
+            },
+            {
+                "lat": 33.297337155730105,
+                "lng": -97.24715815379324
+            },
+            {
+                "lat": 33.2974334692665,
+                "lng": -97.24696711905816
+            },
+            {
+                "lat": 33.29751356655485,
+                "lng": -97.24676565153335
+            },
+            {
+                "lat": 33.29757666668168,
+                "lng": -97.24655571541344
+            },
+            {
+                "lat": 33.29762215444684,
+                "lng": -97.24633935747299
+            },
+            {
+                "lat": 33.29764958636269,
+                "lng": -97.24611868710834
+            },
+            {
+                "lat": 33.29765869497857,
+                "lng": -97.24589585576817
+            },
+            {
+                "lat": 33.297648932486055,
+                "lng": -97.22687021885142
+            },
+            {
+                "lat": 33.299843484508784,
+                "lng": -97.21862880361111
+            },
+            {
+                "lat": 33.300416683122606,
+                "lng": -97.21647581164919
+            },
+            {
+                "lat": 33.296817686862006,
+                "lng": -97.21510431227759
+            },
+            {
+                "lat": 33.29396070858564,
+                "lng": -97.22583379591049
+            },
+            {
+                "lat": 33.293911273998226,
+                "lng": -97.22605889868775
+            },
+            {
+                "lat": 33.29388145747462,
+                "lng": -97.22628889104833
+            },
+            {
+                "lat": 33.29387157537861,
+                "lng": -97.22652133268947
+            },
+            {
+                "lat": 33.29388112946075,
+                "lng": -97.24495595868916
+            },
+            {
+                "lat": 33.287559159142724,
+                "lng": -97.25245394122693
+            },
+            {
+                "lat": 33.06560039437021,
+                "lng": -97.25615080554273
+            },
+            {
+                "lat": 33.05998306053701,
+                "lng": -97.25622392235539
+            },
+            {
+                "lat": 33.05978789023133,
+                "lng": -97.25623854352173
+            },
+            {
+                "lat": 33.05959503335817,
+                "lng": -97.25627716682327
+            },
+            {
+                "lat": 33.05940655766771,
+                "lng": -97.25633937799738
+            },
+            {
+                "lat": 33.05922448392331,
+                "lng": -97.25642450989115
+            },
+            {
+                "lat": 33.05905076423695,
+                "lng": -97.25653164962023
+            },
+            {
+                "lat": 33.0588872611409,
+                "lng": -97.25665964836169
+            },
+            {
+                "lat": 33.05873572762046,
+                "lng": -97.25680713367537
+            },
+            {
+                "lat": 33.058597788321386,
+                "lng": -97.25697252422164
+            },
+            {
+                "lat": 33.05483465848597,
+                "lng": -97.26197774261732
+            },
+            {
+                "lat": 33.045707316679476,
+                "lng": -97.27406732311269
+            },
+            {
+                "lat": 33.04300604285658,
+                "lng": -97.27764494414158
+            },
+            {
+                "lat": 33.0428812894879,
+                "lng": -97.27782870266488
+            },
+            {
+                "lat": 33.04277336806898,
+                "lng": -97.27802704716443
+            },
+            {
+                "lat": 33.042683467401275,
+                "lng": -97.27823779273983
+            },
+            {
+                "lat": 33.04261257777649,
+                "lng": -97.27845861791023
+            },
+            {
+                "lat": 33.04256148006996,
+                "lng": -97.2786870901837
+            },
+            {
+                "lat": 33.04253073714065,
+                "lng": -97.27892069284803
+            },
+            {
+                "lat": 33.042520687632056,
+                "lng": -97.2791568526887
+            },
+            {
+                "lat": 33.04253127739722,
+                "lng": -97.28638961760544
+            },
+            {
+                "lat": 33.042539999979354,
+                "lng": -97.28660207876902
+            },
+            {
+                "lat": 33.042565480038995,
+                "lng": -97.28681261169244
+            },
+            {
+                "lat": 33.042607490449775,
+                "lng": -97.28701933970659
+            },
+            {
+                "lat": 33.04474059655583,
+                "lng": -97.29570441633226
+            },
+            {
+                "lat": 33.04527152506783,
+                "lng": -97.29786657170298
+            },
+            {
+                "lat": 33.04889635060517,
+                "lng": -97.29659979432735
+            }
+        ]
+    },
+    "altitude_lower": {
+      "value": 260.0,
+      "reference": "W84",
+      "units": "M"
+    },
+    "altitude_upper": {
+      "value": 350.0,
+      "reference": "W84",
+      "units": "M"
+    }
+  },
+  "aircraft_registration": "LS101",
+  "operator_name": "LST",
+  "trajectory": [
+    {
+      "point_designator_uuid": "e9fc830d-afa6-4174-8e46-77479a1fbaab",
+      "point_designator": "DF104",
+      "point_type": "Vertiport",
+      "speed_type": "Vertiport",
+      "lat_lng_point": {
+        "lng": -97.295071,
+        "lat": 33.046553
+      },
+      "altitude": {
+        "value": 100,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:15:21.335Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 29.2,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "AIRPORT_REFERENCE_LOCATION"
+        },
+        {
+          "property_type": "WHEELS_OFF"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "e9fc830d-afa6-4174-8e46-77479a1fbaab",
+      "point_designator": "DF104",
+      "point_type": "Vertiport",
+      "speed_type": "Vertiport",
+      "lat_lng_point": {
+        "lng": -97.295071,
+        "lat": 33.046553
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:15:21.335Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 29.2,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "39510183-f313-4e56-83ab-6f6650363cc8",
+      "point_designator": "VV010",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.28638576,
+        "lat": 33.04441985
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:16:09.596Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 38.9,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "c2f25cce-2123-46a3-b2e1-43ffb9b38e3f",
+      "point_designator": "NT045",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.27915284,
+        "lat": 33.04440926
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:16:16.003Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 85.5,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "da8a2612-5f3c-4d69-9235-9e4b713aa08c",
+      "point_designator": "NT044",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.27557531,
+        "lat": 33.0471105
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:16:56.194Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "e82c0eff-d8f3-47d2-8cc0-59ac3ebad465",
+      "point_designator": "NT041",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.26348406,
+        "lat": 33.05623922
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:17:10.894Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "8942559a-ff1e-431c-8d7a-1d3d59eef8c8",
+      "point_designator": "NT040",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.25847719,
+        "lat": 33.06000364
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:18:07.798Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "0d11b590-5c24-441b-8501-c5c618a56b70",
+      "point_designator": "NT038",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.25840418,
+        "lat": 33.06562382
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:18:19.201Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "ed18e6d6-e10b-4720-ba98-5e196ef65242",
+      "point_designator": "NT021",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.25470027,
+        "lat": 33.28834751
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:19:18.108Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "3c988802-0a1a-4830-a550-2c223d3a9ae2",
+      "point_designator": "NT019",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.24589704,
+        "lat": 33.29577012
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:19:28.382Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 116.6,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "032ef738-348b-4eb3-b78c-b2072db3a5e7",
+      "point_designator": "VV001",
+      "point_type": "Track",
+      "speed_type": "Enroute",
+      "lat_lng_point": {
+        "lng": -97.22651973,
+        "lat": 33.29576015
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:20:20.010Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 65.5,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "7c95f1cd-f00e-494c-95a6-5a1e966a330e",
+      "point_designator": "DF103",
+      "point_type": "Vertiport",
+      "speed_type": "Vertiport",
+      "lat_lng_point": {
+        "lng": -97.217943,
+        "lat": 33.298044
+      },
+      "altitude": {
+        "value": 320,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:20:30.399Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 29.2,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "WAYPOINT"
+        }
+      ]
+    },
+    {
+      "point_designator_uuid": "7c95f1cd-f00e-494c-95a6-5a1e966a330e",
+      "point_designator": "DF103",
+      "point_type": "Vertiport",
+      "speed_type": "Vertiport",
+      "lat_lng_point": {
+        "lng": -97.217943,
+        "lat": 33.298044
+      },
+      "altitude": {
+        "value": 100,
+        "reference": "W84",
+        "units": "M"
+      },
+      "time": {
+        "value": "2022-07-01T11:20:30.399Z",
+        "format": "RFC3339"
+      },
+      "speed": {
+        "speed": 29.2,
+        "units_speed": "Knots",
+        "speed_type": "AIR"
+      },
+      "trajectory_property_array": [
+        {
+          "property_type": "AIRPORT_REFERENCE_LOCATION"
+        },
+        {
+          "property_type": "WHEELS_ON"
+        }
+      ]
+    }
+  ],
+  "time_start": {
+    "value": "2022-11-17T20:15:00.000Z",
+    "format": "RFC3339"
+  },
+  "time_end": {
+    "value": "2022-11-17T20:28:53.868Z",
+    "format": "RFC3339"
+  },
+  "adaptation_id": "aa6d648c-8f02-4f86-8e26-e0ac6d0d31df",
+  "state": "Accept",
+  "purpose": "UAM101 Flight from DF104 to DF103"
+}

@@ -1,0 +1,91 @@
+#!/bin/bash
+
+#
+# Utility functions
+#
+
+
+if [[ -z $URL_BASE ]]; then
+  URL_BASE="https://fcilabs.net/x4/latest"
+fi
+
+if [[ -z $FCI_USERNAME ]]; then
+  FCI_USERNAME="unt"
+fi
+
+if [[ -z $FCI_SECRET ]]; then
+  FCI_SECRET="efecf9c0-98d2-44e5-94d5-11aa32aeafde"
+fi
+
+APP_JSON="Content-Type: application/json"
+
+function getToken() {
+  if [[ $1 ]]; then
+    realm="$1"
+  else
+    realm="unt-partners"
+  fi
+
+  local res
+  res=$(curl -s -H "content-type: application/x-www-form-urlencoded" \
+  --data "grant_type=client_credentials&client_id=$FCI_USERNAME&client_secret=$FCI_SECRET" \
+  https://fcilabs.net/auth/realms/"$realm"/protocol/openid-connect/token)
+
+  local ret=$?
+  if [[ $ret -ne 0 ]]; then
+    echo ""
+    return 1
+  fi
+
+  echo $res
+  local token
+  token=$(echo "$res" | cut -d ':' -f 2 | awk -F "\"" '{print $2}')
+  ret=$?
+
+  if [[ $ret -ne 0 ]]; then
+    echo ""
+    return 1
+  fi
+
+  echo "$token"
+
+  return 0
+}
+
+#
+# This operation uses the full path.  Most openid-connect libraries may only require the URL up to
+# the .well-known/openid-configuration portion of the path.  That is use: https://fcilabs.net/auth/realms/unt-partners
+# You will need to refer to the documentation for your openid-connect library.
+function getOpenIdConnect() {
+  local res
+  res=$(curl https://fcilabs.net/auth/realms/unt-partners/.well-known/openid-configuration)
+
+  local ret=$?
+
+  echo "$res"
+
+  return $ret
+}
+
+function nextUUID() {
+  local res
+  res=$(curl -s -H "Authorization: Bearer $(getToken)" \
+  https://fcilabs.net/coordination/v1/random-uuids?count=1 | awk -F "\"" '{print $2}')
+
+  echo "$res"
+}
+
+function authHeader() {
+  printf "Authorization: Bearer $(getToken $1)"
+}
+
+function exitln() {
+  echo
+
+  if [[ $1 ]]; then
+    exit $1
+  fi
+
+  exit 0
+}
+

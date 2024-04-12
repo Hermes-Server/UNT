@@ -1,0 +1,71 @@
+{
+  "constraint_id": "2f8343be-6482-4d1b-a474-16847e01af1e",
+  "constraint": {
+    "reference": {
+      "id": "2f8343be-6482-4d1b-a474-16847e01af1e",
+      "manager": "psu1",
+      "uss_availability": "Unknown",
+      "version": 1,
+      "ovn": "9d158f59-80b7-4c11-9c0c-8a2b4d936b2d",
+      "time_start": {
+        "value": "1985-04-12T23:20:50.52Z",
+        "format": "RFC3339"
+      },
+      "time_end": {
+        "value": "1985-04-12T23:20:50.52Z",
+        "format": "RFC3339"
+      },
+      "uss_base_url": "https://uam_psu.com/uam"
+    },
+    "details": {
+      "volumes": [
+        {
+          "volume": {
+            "outline_polygon": {
+              "vertices": [
+                {
+                  "lng": -118.456,
+                  "lat": 34.123
+                },
+                {
+                  "lng": -118.456,
+                  "lat": 34.123
+                },
+                {
+                  "lng": -118.456,
+                  "lat": 34.123
+                }
+              ]
+            },
+            "altitude_lower": {
+              "value": 10000.0,
+              "reference": "W84",
+              "units": "M"
+            },
+            "altitude_upper": {
+              "value": 100000.0,
+              "reference": "W84",
+              "units": "M"
+            }
+          },
+          "time_start": {
+            "value": "1985-04-12T23:20:50.52Z",
+            "format": "RFC3339"
+          },
+          "time_end": {
+            "value": "1985-04-12T23:20:50.52Z",
+            "format": "RFC3339"
+          }
+        }
+      ],
+      "type": "com.example.non_utm_aircraft_operations"
+    }
+  },
+  "subscriptions": [
+    {
+      "subscription_id": "78ea3fe8-71c2-4f5c-9b44-9c02f5563c6f",
+      "notification_index": 0
+    }
+  ]
+}
+

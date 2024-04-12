@@ -1,0 +1,7 @@
+{
+  "url": "http://aam-ntcohort.eng.unt.edu:443/constraints",
+  "security": {
+    "type": "fciBearer"
+  },
+  "data": "constraints"
+}

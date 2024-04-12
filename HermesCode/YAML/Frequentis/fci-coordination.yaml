@@ -1,0 +1,373 @@
+openapi: 3.0.3
+info:
+  title: X4 FCI Coordination API
+  version: 0.0.1
+  description: |-
+    This coordination API is used to combine multiple backend PSUs into one.
+
+
+security:
+  - Authority:
+      - fci
+
+components:
+  securitySchemes:
+    Authority:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://fcilabs.net/auth/unt-partners
+          scopes:
+            fci.default: Default
+      description: FCI authorization
+
+  schemas:
+    AuthorizationNone:
+      description: No authorization
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          enum:
+            - none
+          default: none
+
+    AuthorizationFciBearer:
+      description: FCI Bearer token
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          enum:
+            - fciBearer
+          default: fciBearer
+
+    AuthorizationNasaFims:
+      description: NASA FIMS token
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          enum:
+            - nasaFIMS
+          default: nasaFIMS
+
+    AuthorizationBasic:
+      description: Basic Authorization
+      required:
+        - type
+        - credentials
+      type: object
+      properties:
+        type:
+          enum:
+            - basic
+          default: basic
+        credentials:
+          type: string
+
+    SubscriptionDetails:
+      description: Create subscription request for PSU data
+      required:
+        - url
+        - security
+        - data
+      type: object
+      properties:
+        url:
+          type: string
+        security:
+          oneOf:
+            - $ref: '#/components/schemas/AuthorizationFciBearer'
+            - $ref: '#/components/schemas/AuthorizationNasaFims'
+            - $ref: '#/components/schemas/AuthorizationBasic'
+            - $ref: '#/components/schemas/AuthorizationNone'
+        data:
+          enum:
+            - constraints
+            - operations
+            - telemetry
+
+    SubscriptionReference:
+      description: Subscription Reference
+      allOf:
+        - $ref: '#/components/schemas/SubscriptionDetails'
+        - type: object
+          required:
+            - user
+            - id
+          properties:
+            user:
+              type: string
+            id:
+              type: string
+
+    FIMSInfo:
+      description: FIMS Token Information
+      type: object
+      properties:
+        for-endpoints:
+          type: array
+          items:
+            type: string
+        client-id:
+          type: string
+        scope:
+          type: string
+        audience:
+          type: string
+        last-get-attempt:
+          $ref: '../psu/psu_api.yml#/components/schemas/Time'
+        last-successful-get:
+          $ref: '../psu/psu_api.yml#/components/schemas/Time'
+
+
+
+paths:
+  /coord/v1/vehicle_telemetry:
+    summary: Coordination vehicle telemetry
+
+    post:
+      security:
+        - Authority:
+            - fci.default
+      summary: Post current vehicle telemetry
+      operationId: postVehicleTelemetry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../psu/psu_api.yml#/components/schemas/GetOperationalIntentTelemetryResponse'
+        required: true
+      responses:
+        '200':
+          description: Telemetry accepted
+
+  /coord/v1/psu-log-set/{entityid}:
+    summary: PSULogSet object
+    parameters:
+      - name: entityid
+        description: EntityID of the operational intent
+        in: path
+        required: true
+        schema:
+          $ref: '../psu/psu_api.yml#/components/schemas/EntityID'
+
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Send the PSULogSet to NASA
+      operationId: postPSULogSet
+      responses:
+        '200':
+          description: PSULogSet sent
+
+    get:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Get the PSULogSet for the given UUID/EntityId of the operational intent
+      operationId: getPSULogSet
+      responses:
+        '200':
+          description: The PSULogSet
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '../data/data_collection_api.yml#/components/schemas/PSULogSet'
+
+  /coord/v1/psu-log-set-to-nasa:
+    summary: PSULogSet objects
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Send the PSULogSet directly to NASA
+      operationId: postPSULogSetToNASA
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '../data/data_collection_api.yml#/components/schemas/PSULogSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+
+  /coord/v1/echo:
+    summary: Echo a request
+    post:
+      security:
+        - Authority:
+            - fci.default
+      operationId: postEcho
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+
+  /coord/v1/validate/vehicle_telemetry:
+    summary: Validate vehicleTelemetry object
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Send a VehicleTelemetry object for validate
+      operationId: postValidateVehicleTelemetry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../psu/psu_api.yml#/components/schemas/VehicleTelemetry'
+      responses:
+        '200':
+          description: OK
+
+  /coord/v1/validate/psu-constraints:
+    summary: Validate PSU Constraints
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      operationId: postValidateConstraints
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../psu/psu_api.yml#/components/schemas/PutConstraintDetailsParameters'
+      responses:
+        '200':
+          description: OK
+
+  /coord/v1/validate/psu-operational-intents:
+    summary: Validate PSU Operational-Intents
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      operationId: postValidateOperationalIntents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../psu/psu_api.yml#/components/schemas/PutOperationalIntentDetailsParameters'
+      responses:
+        '200':
+          description: OK
+
+  /coord/v1/fims/information:
+    summary: Examines FIMS tokens
+    get:
+      security:
+        - Authority:
+            - fci.default
+      operationId: getFIMSInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FIMSInfo'
+
+
+  /coord/v1/subscription:
+    summary: Subscribe to receive PSU events
+
+    get:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Get all subscriptions
+      operationId: getAllSubscriptions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubscriptionReference'
+
+    post:
+      security:
+        - Authority:
+            - fci.default
+
+      summary: Create a new subscription
+      operationId: postSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDetails'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubscriptionReference'
+
+    delete:
+      security:
+        - Authority:
+            - fci.default
+      summary: Delete all subscriptions
+      operationId: deleteAllSubscriptions
+      responses:
+        '200':
+          description: OK
+
+  /coord/v1/subscription/{id}:
+    summary: Modify subscription
+    parameters:
+      - name: id
+        description: Subscription ID
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    delete:
+      security:
+        - Authority:
+            - fci.default
+      summary: Delete a subscription
+      operationId: deleteSingleSubscription
+      responses:
+        '200':
+          description: OK
+
+

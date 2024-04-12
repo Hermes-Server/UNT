@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# Get a specific Operation
+#
+#
+
+. ./op_functions
+
+curl  -i -v  -H "$(authHeader)" "$URL_BASE"/asds/adaptation
+
+exitln $?

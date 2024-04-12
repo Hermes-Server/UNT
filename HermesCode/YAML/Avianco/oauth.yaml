@@ -1,0 +1,241 @@
+---
+openapi: 3.0.3
+# swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Avianco SkyNet PSU Authentication APIs
+  description: APIs for authentication with Avianco's SkyNet PSU
+  
+servers:
+  - url: https://app.avianco.io:2002/oauth/v1
+  
+tags:
+  - name: Token
+  
+paths:
+  /token:
+    post:
+      description: API for obtaining Token
+      summary: API for obtaining Token
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            $ref: '#/components/schemas/apiKey'
+        # - name: x-access-token
+        #   in: header    
+        #   schema:
+        #     $ref: '#/components/schemas/accessToken'
+      tags:
+        - Token
+      # requestBody:
+      #   content:
+      #     'application/json':
+      #       schema:
+      #         $ref: '#/components/schemas/LoginReqBodyParams'
+      requestBody:
+        $ref: '#/components/requestBodies/TokenObj'
+        
+      responses:
+        '200':
+          description: OK
+          content:
+              application/json:
+                schema:
+                   $ref:  '#/components/schemas/TokenData'
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: One or more input parameters were missing or invalid.        
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The client issued too many requests in a short period of time
+          
+        '500':
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref:  '#/components/schemas/Error'
+  /token_refresh:
+    post:
+      description: Refresh Token
+      summary: Refresh an existing token.
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            $ref: '#/components/schemas/apiKey'
+        - name: x-access-token
+          in: header    
+          schema:
+            $ref: '#/components/schemas/accessToken'
+      tags:
+        - Token
+      # requestBody:
+      #   content:
+      #     'application/json':
+      #       schema:
+      #         $ref: '#/components/schemas/LoginReqBodyParams'
+      requestBody:
+        $ref: '#/components/requestBodies/RefreshTokenObj'
+        
+      responses:
+        '200':
+          description: OK
+          content:
+              application/json:
+                schema:
+                   $ref:  '#/components/schemas/TokenData'
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: One or more input parameters were missing or invalid.
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: access token was not provided in Authorization header,
+            token could not be decoded, or token was invalid.
+        
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The client issued too many requests in a short period of time
+          
+        '500':
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref:  '#/components/schemas/Error'  
+components:
+  requestBodies:
+    TokenObj:
+      description: A JSON object containing User information
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TokenObjBodyParams'
+    RefreshTokenObj:
+      description: A JSON object containing Refresh token
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RefreshTokenObjBodyParams'
+  schemas:
+    TokenObjBodyParams:
+      required:
+       - email
+       - password
+      properties:
+        email: 
+          type: string
+        password:
+          type: string
+      example:
+        email: xxxxxx@testmail.com
+        password: abc123
+    TokenData:
+      required:
+       - access_token 
+       - token_type
+       - expires_in
+       - refresh_token
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:  
+          type: integer
+        refresh_token:
+          type: string
+    RefreshTokenObjBodyParams:
+      required:
+       - refreshToken
+      type: object
+      properties:
+        refreshToken: 
+          $ref: '#/components/schemas/UUIDv4Format'
+        
+    successObj:
+      required:
+          - status
+          - data
+      properties:
+        status:
+            type: string
+        data:
+          type: string
+    successMsgObj:
+      required:
+          - status
+          - data
+          - message
+      properties:
+        status:
+            type: string
+        data:
+          type: string
+        message:
+          type: string
+    apiKey:
+      required:
+        - x-api-key
+      properties:
+        x-api-key:
+          type: string
+      example:
+        XXXXXXX-ZZZZZZZ-ZZZZZZZ-XXXXXXX
+    accessToken:
+      required:
+        - x-access-token
+      properties:
+        x-access-token:
+          type: string
+      example:
+        eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDc1Mjg1NTgsImV4cCI6MTY0NzYxNDk1OH0.PGa4KUL15tuUBdUM__BUPNFMQOhAvOhIYdCy6_Qes6A
+    UUIDv4Format:
+      description: |-
+        String whose format matches a version-4 UUID according to RFC 4122.
+      maxLength: 36
+      minLength: 36
+      type: string
+      format: uuid
+      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[8-b][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
+      # pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$'
+      example: 03e5572a-f733-49af-bc14-8a18bd53ee39
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    ErrorResponse:
+      description: |-
+        Human-readable string returned when an error occurs
+        as a result of a USS - DSS transaction.
+      type: object
+      properties:
+        message:
+          description: |-
+            Human-readable message indicating what error occurred and/or why.
+          type: string
+          example: The error occurred because [...]

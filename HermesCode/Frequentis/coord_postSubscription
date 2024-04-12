@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#
+#
+
+. ./op_functions
+
+if [[ ! $1 ]]; then
+  echo "missing subscription"
+  exit 1
+fi
+
+curl -i -v -X POST -H "$(authHeader)" -H "$APP_JSON" --data "@$1" "$URL_BASE"/coord/v1/subscription
+exitln $?

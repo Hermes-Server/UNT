@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#
+
+. ./op_functions
+
+
+curl -i -v -H "$(authHeader)" -H "$APP_JSON" "$URL_BASE"/coord/v1/subscription
+exitln $?
